@@ -5,3 +5,7 @@
 html {
     cursor: url('/Assets/img/portal-cursor.cur'), auto;
 }
+
+body {
+    background-image: url('/Assets/img/bg01.jpg');
+}

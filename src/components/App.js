@@ -22,6 +22,7 @@ export default function App() {
         setDisabled(true)
         if(flipped.length === 0) {
             setFlipped([id])
+            audioHandler.flipped()
             setDisabled(false)
         } else {
             if(flipped.includes(id)) {
@@ -34,7 +35,9 @@ export default function App() {
                     audioHandler.solved()
                     resetCards()
                 } else {
+                    audioHandler.flipped()
                     setTimeout(resetCards, 1500)
+                    setTimeout(audioHandler.flipped(), 1500)
                 }
             } 
         }
