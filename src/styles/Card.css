@@ -4,8 +4,8 @@
 }
 
 .card {
-    height: 125px;
-    width: 100px;
+    height: 100%;
+    width: 100%;
 }
 
 .card-face {
@@ -100,4 +100,38 @@
 .card-back-image {
     height: 100%;
     width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+    .card-container {
+        height: 75px;
+        width: 50px;
+    }
+
+    .card-face {
+        height: 75px;
+        width: 50px;
+    }
+
+    .portal-container {
+        height: 75px;
+        width: 50px;
+    }
+}
+
+@media (max-width: 415px) {
+    .card-container {
+        height: 75px;
+        width: 50px;
+    }
+
+    .card-face {
+        height: 75px;
+        width: 50px;
+    }
+
+    .portal-container {
+        height: 75px;
+        width: 50px;
+    }
 }

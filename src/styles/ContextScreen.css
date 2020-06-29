@@ -10,6 +10,7 @@
     justify-content: center;
     align-items: center;
     font-family: "Schwifty";
+    font-size: 12px;
     color: #00ccff;
     z-index: 100;
 }
@@ -17,6 +18,7 @@
 .overlay-text.visible {
     display: flex;
     flex-direction: column;
+    
     animation: overlay-grow 500ms forwards;
 }
 
