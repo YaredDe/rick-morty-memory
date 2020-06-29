@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import CardGrid from './CardGrid'
+import ContextScreen from './ContextScreen'
 import {initializeDeck} from './handlers/DeckHandler'
 import AudioHandler from './handlers/AudioHandler'
 import '../styles/App.css'
@@ -10,15 +11,18 @@ export default function App() {
     const [flipped, setFlipped] = useState([])
     const [disabled, setDisabled] = useState(false)
     const [solved, setSolved] = useState([])
+    const [gameState, setGameState] = useState("")
+    const [screenState, setScreenState] = useState(true)
     const audioHandler = new AudioHandler()
 
     useEffect(() => {
         // setCards(initializeDeck())
+        setGameState("start")
         initializeDeck().then(setCards)
         audioHandler.startMusic()
       }, [])
 
-    const handleClick = (id) => {
+    const cardClick = (id) => {
         setDisabled(true)
         if(flipped.length === 0) {
             setFlipped([id])
@@ -43,7 +47,6 @@ export default function App() {
         }
     }
 
-
     const resetCards = () => {
         setFlipped([])
         setDisabled(false)
@@ -55,17 +58,21 @@ export default function App() {
         return flippedCard.type === clickedCard.type
     }
 
-    return(
-        <div className="game-container">
-            <CardGrid 
-                cards={cards}
-                handleClick={handleClick}
-                flipped={flipped}
-                disabled={disabled}
-                solved={solved}
+    
 
-            />
-        </div>
+    return(
+        
+            <div className="game-container">
+                <ContextScreen gameState={gameState} />
+                <CardGrid 
+                    cards={cards}
+                    handleClick={cardClick}
+                    flipped={flipped}
+                    disabled={disabled}
+                    solved={solved}
+                />
+            </div>
+       
     )
     
 }
